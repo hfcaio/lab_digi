@@ -19,8 +19,11 @@ END somador_32;
 
 ARCHITECTURE Behave OF somador_32 IS
     SIGNAL sum : unsigned(32 DOWNTO 0);
+    SIGNAL a_extended, b_extended : bit_vector(32 DOWNTO 0);
 BEGIN
-    sum <= unsigned(TO_STDLOGICVECTOR(a)) + unsigned(TO_STDLOGICVECTOR(b)) WHEN enable = '1' ELSE
+    a_extended <= '0' & a(31 DOWNTO 0);
+    b_extended <= '0' & b(31 DOWNTO 0);
+    sum <= unsigned(TO_STDLOGICVECTOR(a_extended)) + unsigned(TO_STDLOGICVECTOR(b_extended)) WHEN enable = '1' ELSE
         (OTHERS => '0');
     c <= TO_BITVECTOR(STD_LOGIC_VECTOR(sum(31 DOWNTO 0)));
     overflow <= TO_BIT(sum(32));
