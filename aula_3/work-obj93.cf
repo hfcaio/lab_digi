@@ -1,22 +1,26 @@
 v 4
-file . "stepfun_tb.vhd" "33f407284278567cfc0ecbc877c889e3274e61de" "20240318145909.036":
-  entity testbench at 1( 0) + 0 on 49;
-  architecture behave of testbench at 4( 36) + 0 on 50;
-file . "stepfun.vhd" "31ba0ae1fd669a38934ad7f97f724753e2322ffb" "20240318145407.883":
-  entity somador_32 at 7( 304) + 0 on 41;
-  architecture behave of somador_32 at 20( 566) + 0 on 42;
-  entity stepfun at 32( 1036) + 0 on 43;
-  architecture behave of stepfun at 44( 1336) + 0 on 44;
-file . "main_functions_exp2.vhd" "8b8aa6d28eb38253d58b2067f9d58ec0c70af435" "20240318002124.117":
-  entity ch at 9( 314) + 0 on 15;
-  architecture comportamental of ch at 16( 443) + 0 on 16;
-  entity maj at 22( 641) + 0 on 17;
-  architecture comportamental of maj at 29( 772) + 0 on 18;
-  entity sum0 at 35( 979) + 0 on 19;
-  architecture comportamental of sum0 at 42( 1108) + 0 on 20;
-  entity sum1 at 48( 1318) + 0 on 21;
-  architecture comportamental of sum1 at 55( 1447) + 0 on 22;
-  entity sigma0 at 61( 1657) + 0 on 23;
-  architecture comportamental of sigma0 at 68( 1790) + 0 on 24;
-  entity sigma1 at 74( 2001) + 0 on 25;
-  architecture comportamental of sigma1 at 81( 2134) + 0 on 26;
+file . "stepfun_tb.vhd" "33f407284278567cfc0ecbc877c889e3274e61de" "20240319065410.253":
+  entity testbench at 1( 0) + 0 on 31;
+  architecture behave of testbench at 4( 36) + 0 on 32;
+file . "stepfun_2.vhd" "8a47afc6e9e208b11e3877a447fed5a99076b407" "20240319065318.390":
+  entity somador_1 at 8( 312) + 0 on 11;
+  architecture behave of somador_1 at 17( 481) + 0 on 12;
+  entity somador_4 at 25( 793) + 0 on 13;
+  architecture behave of somador_4 at 34( 1000) + 0 on 14;
+  entity somador_32 at 59( 1830) + 0 on 15;
+  architecture behave of somador_32 at 68( 2031) + 0 on 16;
+  entity stepfun at 99( 3517) + 0 on 17;
+  architecture behave of stepfun at 107( 3755) + 0 on 18;
+file . "main_functions_exp2.vhd" "8b8aa6d28eb38253d58b2067f9d58ec0c70af435" "20240319065353.596":
+  entity ch at 9( 314) + 0 on 19;
+  architecture comportamental of ch at 16( 443) + 0 on 20;
+  entity maj at 22( 641) + 0 on 21;
+  architecture comportamental of maj at 29( 772) + 0 on 22;
+  entity sum0 at 35( 979) + 0 on 23;
+  architecture comportamental of sum0 at 42( 1108) + 0 on 24;
+  entity sum1 at 48( 1318) + 0 on 25;
+  architecture comportamental of sum1 at 55( 1447) + 0 on 26;
+  entity sigma0 at 61( 1657) + 0 on 27;
+  architecture comportamental of sigma0 at 68( 1790) + 0 on 28;
+  entity sigma1 at 74( 2001) + 0 on 29;
+  architecture comportamental of sigma1 at 81( 2134) + 0 on 30;
