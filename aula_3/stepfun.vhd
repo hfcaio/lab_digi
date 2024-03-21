@@ -5,7 +5,6 @@
 -- VHDL module to convert from hex (4b) to 7-segment
 -------------------------------------------------------------------------------
 LIBRARY IEEE;
-USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
 ENTITY somador_32 IS
