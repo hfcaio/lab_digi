@@ -53,7 +53,7 @@ ENTITY FD IS
     );
     PORT (
         clock : IN BIT;
-        state : IN BIT;
+        state, keep_going : IN BIT;
         tx_done : OUT BIT;
         data : IN bit_vector(width - 1 DOWNTO 0);
         serial_o : OUT BIT
@@ -87,6 +87,9 @@ BEGIN
 
     all_data (stop_bits - 1 DOWNTO 0) <= (OTHERS => '1');
 
+    tx_done <= '1' WHEN counter = 0 ELSE
+        '0';
+
     PROCESS (clock)
     BEGIN
         IF (clock'event AND clock = '1') THEN
@@ -99,11 +102,10 @@ BEGIN
 
             IF state = '0' THEN
                 counter <= width + stop_bits + parity;
-                tx_done <= '0';
             ELSIF counter > 0 THEN
                 counter <= counter - 1;
-            ELSIF counter = 0 THEN
-                tx_done <= '1';
+            ELSIF (counter = 0 AND keep_going = '1') THEN
+                counter <= width + stop_bits + parity;
             END IF;
 
         END IF;
@@ -148,18 +150,19 @@ ARCHITECTURE behave_serial_out OF serial_out IS
         );
         PORT (
             clock : IN BIT;
-            state : IN BIT;
+            state, keep_going : IN BIT;
             tx_done : OUT BIT;
             data : IN bit_vector(width - 1 DOWNTO 0);
             serial_o : OUT BIT
         );
+
     END COMPONENT;
 
     SIGNAL inverted_clock, state, done : BIT := '0';
 BEGIN
     inverted_clock <= NOT clock;
     tx_done <= done;
-    FD_instance : FD GENERIC MAP(polarity, width, parity, stop_bits) PORT MAP(clock => inverted_clock, tx_done => done, state => state, data => data, serial_o => serial_o);
     UC_instance : UC PORT MAP(clock => clock, reset => reset, tx_go => tx_go, tx_done => done, state_bit => state);
+    FD_instance : FD GENERIC MAP(polarity, width, parity, stop_bits) PORT MAP(clock => inverted_clock, tx_done => done, state => state, data => data, serial_o => serial_o, keep_going => tx_go);
 
 END behave_serial_out;
