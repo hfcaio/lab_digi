@@ -1,0 +1,11 @@
+v 4
+file . "tx_tb.vhd" "6c18dd3bde3c046fb5383bf7db920f0762b5b79f" "20240409224946.687":
+  entity serial_out_tb at 1( 0) + 0 on 65;
+  architecture behavior of serial_out_tb at 7( 91) + 0 on 66;
+file . "serial_out.vhd" "ebaed92b2784cbd1e23f859a73beb75576ac799b" "20240409230233.679":
+  entity uc at 2( 143) + 0 on 85;
+  architecture behave_uc of uc at 14( 329) + 0 on 86;
+  entity fd at 44( 1115) + 0 on 87;
+  architecture behave_fd of fd at 63( 1518) + 0 on 88;
+  entity serial_out at 110( 3094) + 0 on 89;
+  architecture behave_serial_out of serial_out at 129( 3520) + 0 on 90;
